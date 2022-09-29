@@ -890,6 +890,8 @@ public:
 
     bool setStretchEffect(const StretchEffect& effect);
     StretchEffect getStretchEffect() const;
+    aidl::android::hardware::graphics::composer3::Composition getCompositionType(
+            const DisplayDevice&) const;
 
     virtual bool setBufferCrop(const Rect& /* bufferCrop */) { return false; }
     virtual bool setDestinationFrame(const Rect& /* destinationFrame */) { return false; }
@@ -1047,9 +1049,6 @@ private:
 
     // Returns true if the layer can draw shadows on its border.
     virtual bool canDrawShadows() const { return true; }
-
-    aidl::android::hardware::graphics::composer3::Composition getCompositionType(
-            const DisplayDevice&) const;
 
     /**
      * Returns an unsorted vector of all layers that are part of this tree.
